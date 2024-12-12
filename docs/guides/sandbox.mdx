@@ -63,6 +63,447 @@ username: user-home
 password: pass-home
 ```
 
+<CodeGroup>
+
+```json policy 1
+{
+  "account": "acc_sandbox_2",
+  "address": {
+    "addressLine1": "123 Fake St",
+    "addressLine2": null,
+    "city": "Atlanta",
+    "country": "USA",
+    "postalCode": "30303",
+    "state": "GA"
+  },
+  "carrier": "sandbox",
+  "coverages": [
+    {
+      "code": "DW",
+      "deductible": 1000,
+      "label": "Dwelling",
+      "limitPerAccident": 100000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "OS",
+      "deductible": 1000,
+      "label": "Other Structures",
+      "limitPerAccident": 10000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PP",
+      "deductible": 1000,
+      "label": "Personal Property",
+      "limitPerAccident": 30000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "LOU",
+      "deductible": 1000,
+      "label": "Loss of Use",
+      "limitPerAccident": 15000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PL",
+      "label": "Personal Liability",
+      "limitPerAccident": 100000
+    },
+    {
+      "code": "MED",
+      "label": "Medical Expenses",
+      "limitPerAccident": 10000
+    }
+  ],
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "documents": [
+    {
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "key": "doc_sandbox_2.pdf",
+      "name": "Declarations Page.pdf",
+      "source": "carrier",
+      "type": ["declaration-page"]
+    }
+  ],
+  "effectiveDate": "2024-07-02T18:34:41.122Z",
+  "expirationDate": "2025-01-02T18:34:41.124Z",
+  "id": "pol_sandbox_3",
+  "insureds": [
+    {
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "dateOfBirthYear": "1990",
+      "firstName": "John",
+      "lastName": "Smith",
+      "licenseNo": null,
+      "licenseState": null,
+      "type": "primary"
+    }
+  ],
+  "isActive": true,
+  "modifiedAt": "2024-07-02T18:34:41.778Z",
+  "policyNumber": "H123456789",
+  "premium": 1000,
+  "properties": [
+    {
+      "data": {
+        "addressLine1": "123 Fake St",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": "USA",
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "id": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "dwelling"
+    }
+  ],
+  "refreshedAt": "2024-07-01T18:34:41.124Z",
+  "thirdParties": [
+    {
+      "address": {
+        "addressLine1": "PO Box 100000",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": null,
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "name": "Large Bank #000 Its Successors And/Or Assigns",
+      "property": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "lienholder"
+    }
+  ],
+  "type": "home"
+}
+```
+
+```json policy 2
+{
+  "account": "acc_sandbox_2",
+  "address": {
+    "addressLine1": "123 Sample Ln.",
+    "addressLine2": null,
+    "city": "Atlanta",
+    "country": "USA",
+    "postalCode": "30303",
+    "state": "GA"
+  },
+  "carrier": "sandbox",
+  "coverages": [
+    {
+      "code": "DW",
+      "deductible": 1000,
+      "label": "Dwelling",
+      "limitPerAccident": 100000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "OS",
+      "deductible": 1000,
+      "label": "Other Structures",
+      "limitPerAccident": 10000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PP",
+      "deductible": 1000,
+      "label": "Personal Property",
+      "limitPerAccident": 30000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "LOU",
+      "deductible": 1000,
+      "label": "Loss of Use",
+      "limitPerAccident": 15000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PL",
+      "label": "Personal Liability",
+      "limitPerAccident": 100000
+    },
+    {
+      "code": "MED",
+      "label": "Medical Expenses",
+      "limitPerAccident": 10000
+    }
+  ],
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "documents": [
+    {
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "key": "doc_sandbox_2.pdf",
+      "name": "Declarations Page.pdf",
+      "source": "carrier",
+      "type": ["declaration-page"]
+    }
+  ],
+  "effectiveDate": "2024-05-31T12:34:38.119Z",
+  "expirationDate": "2024-12-01T12:34:38.122Z",
+  "id": "pol_sandbox_6",
+  "insureds": [
+    {
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "dateOfBirthYear": "1990",
+      "firstName": "John",
+      "lastName": "Smith",
+      "licenseNo": null,
+      "licenseState": null,
+      "type": "primary"
+    }
+  ],
+  "isActive": true,
+  "modifiedAt": "2024-05-31T12:34:38.827Z",
+  "policyNumber": "H987654321",
+  "premium": 1000,
+  "properties": [
+    {
+      "data": {
+        "addressLine1": "123 Sample Ln.",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": "USA",
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "id": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "dwelling"
+    }
+  ],
+  "refreshedAt": "2024-05-30T12:34:38.122Z",
+  "thirdParties": [
+    {
+      "address": {
+        "addressLine1": "PO Box 100000",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": null,
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "name": "Large Bank #000 Its Successors And/Or Assigns",
+      "property": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "lienholder"
+    }
+  ],
+  "type": "home"
+}
+```
+
+```json Missing partial policy details
+{
+  "account": "acc_sandbox_2",
+  "address": {
+    "addressLine1": "123 Sample Ln.",
+    "addressLine2": null,
+    "city": "Atlanta",
+    "country": "USA",
+    "postalCode": "30303",
+    "state": "GA"
+  },
+  "carrier": "sandbox",
+  "coverages": [
+    {
+      "code": "DW",
+      "deductible": 1000,
+      "label": "Dwelling",
+      "limitPerAccident": 100000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "OS",
+      "deductible": 1000,
+      "label": "Other Structures",
+      "limitPerAccident": 10000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PP",
+      "deductible": 1000,
+      "label": "Personal Property",
+      "limitPerAccident": 30000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "LOU",
+      "deductible": 1000,
+      "label": "Loss of Use",
+      "limitPerAccident": 15000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PL",
+      "label": "Personal Liability",
+      "limitPerAccident": 100000
+    },
+    {
+      "code": "MED",
+      "label": "Medical Expenses",
+      "limitPerAccident": 10000
+    }
+  ],
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "documents": [
+    {
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "key": "doc_sandbox_2.pdf",
+      "name": "Declarations Page.pdf",
+      "source": "carrier",
+      "type": ["declaration-page"]
+    },
+    {
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "key": "doc_sandbox_3.pdf",
+      "name": "Policy Agreement.pdf",
+      "source": "carrier",
+      "type": ["policy-agreement"]
+    }
+  ],
+  "effectiveDate": null,
+  "expirationDate": null,
+  "id": "pol_sandbox_7",
+  "insureds": [
+    {
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "dateOfBirthYear": "1990",
+      "firstName": "John",
+      "lastName": "Smith",
+      "licenseNo": null,
+      "licenseState": null,
+      "type": "primary"
+    }
+  ],
+  "isActive": true,
+  "modifiedAt": "2024-05-09T12:33:30.029Z",
+  "policyNumber": "H000000001",
+  "premium": null,
+  "properties": [
+    {
+      "data": {
+        "addressLine1": "123 Sample Ln.",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": "USA",
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "id": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "dwelling"
+    }
+  ],
+  "refreshedAt": "2023-10-10T17:22:00.634Z",
+  "thirdParties": [],
+  "type": "home"
+}
+```
+
+```json Missing partial policy details + documents
+{
+  "PK": "Account#acc_sandbox_2",
+  "SK": "Policy#pol_sandbox_8",
+  "account": "acc_sandbox_2",
+  "address": {
+    "addressLine1": "123 Sample Ln.",
+    "addressLine2": null,
+    "city": "Atlanta",
+    "country": "USA",
+    "postalCode": "30303",
+    "state": "GA"
+  },
+  "carrier": "sandbox",
+  "coverages": [
+    {
+      "code": "DW",
+      "deductible": 1000,
+      "label": "Dwelling",
+      "limitPerAccident": 100000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "OS",
+      "deductible": 1000,
+      "label": "Other Structures",
+      "limitPerAccident": 10000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PP",
+      "deductible": 1000,
+      "label": "Personal Property",
+      "limitPerAccident": 30000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "LOU",
+      "deductible": 1000,
+      "label": "Loss of Use",
+      "limitPerAccident": 15000,
+      "property": "prp_GayigzhXhz7tCxDKKDaAV"
+    },
+    {
+      "code": "PL",
+      "label": "Personal Liability",
+      "limitPerAccident": 100000
+    },
+    {
+      "code": "MED",
+      "label": "Medical Expenses",
+      "limitPerAccident": 10000
+    }
+  ],
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "documents": [
+    {
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "key": "doc_sandbox_3.pdf",
+      "name": "Policy Agreement.pdf",
+      "source": "carrier",
+      "type": ["policy-agreement"]
+    }
+  ],
+  "effectiveDate": null,
+  "expirationDate": null,
+  "id": "pol_sandbox_8",
+  "insureds": [
+    {
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "dateOfBirthYear": "1990",
+      "firstName": "John",
+      "lastName": "Smith",
+      "licenseNo": null,
+      "licenseState": null,
+      "type": "primary"
+    }
+  ],
+  "isActive": true,
+  "modifiedAt": "2024-01-12T20:51:23.083Z",
+  "policyNumber": "H000000002",
+  "premium": null,
+  "properties": [
+    {
+      "data": {
+        "addressLine1": "123 Sample Ln.",
+        "addressLine2": null,
+        "city": "Atlanta",
+        "country": "USA",
+        "postalCode": "30303",
+        "state": "GA"
+      },
+      "id": "prp_GayigzhXhz7tCxDKKDaAV",
+      "type": "dwelling"
+    }
+  ],
+  "refreshedAt": "2023-10-10T17:22:00.634Z",
+  "thirdParties": [],
+  "type": "home"
+}
+```
+
+</CodeGroup>
+
 **Error**
 
 The following credentials will fail to connect to the Axle service, resulting in an `errored` status for the Ignition session.
