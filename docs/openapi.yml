@@ -455,7 +455,9 @@ paths:
                     type: array
                     description: A list of identifiers for the destination clients associated with your credential, or if `expand=true`, a list of the destination client `id` and `entity` fields.
                     items:
-                      type: string
+                      oneOf:
+                        - type: string
+                        - $ref: "#/components/schemas/DestinationClient"
       deprecated: false
       tags:
         - Clients
@@ -478,16 +480,15 @@ paths:
               properties:
                 displayName:
                   type: string
-                  description: The name of the destination client to display to the users.
+                  description: The name of the destination client to display to users (e.g., Honda of Pawnee).
                 entity:
-                  type: string
-                  description: A standardized entity name for the destination client using all lowercase, and dashes instead of spaces. For example, `my-destination-client`. Entity names must be unique across all destination clients, and you will recieve a 409 response with a clear status message if the entity name has already been taken.
+                  $ref: "#/components/schemas/ClientEntity"
               required:
                 - "displayName"
                 - "entity"
             example:
-              displayName: "My Destination Client"
-              entity: "my-destination-client"
+              displayName: "Honda of Pawnee"
+              entity: "superPlatform-honda-of-pawnee"
         required: true
       responses:
         "200":
@@ -691,9 +692,11 @@ components:
           nullable: true
         policies:
           type: array
-          description: List of unique identifiers of Policy objects associated with the Account.
+          description: List of unique identifiers of Policy objects associated with the Account, or if `expand=true`, list of Policy objects.
           items:
-            type: string
+            oneOf:
+              - type: string
+              - $ref: "#/components/schemas/Policy"
         connection:
           $ref: "#/components/schemas/Connection"
         createdAt:
@@ -768,8 +771,10 @@ components:
           description: Unique identifier for the Policy object.
           example: "pol_CbxGmGWnp9bGAFCC-eod2"
         account:
-          type: string
-          description: Unique identifier for the Account object associated with the Policy.
+          oneOf:
+            - type: string
+            - $ref: "#/components/schemas/Account"
+          description: Unique identifier for the Account object associated with the Policy, or if `expand=true`, the Account object.
           example: "acc_gM2wn_gaqUv76ZljeVXOv"
         type:
           type: string
@@ -1000,7 +1005,7 @@ components:
         policy:
           oneOf:
             - type: string
-            - type: object
+            - $ref: "#/components/schemas/Policy"
           description: Unique identifier for the Policy object, or if `expand=true`, Policy object.
       required:
         - report
@@ -1452,7 +1457,6 @@ components:
       required:
         - rule
         - input
-
     RuleWithNoInput:
       title: Rule With No Input
       type: object
@@ -1464,6 +1468,25 @@ components:
             - "rental-covered-for-collision"
       required:
         - rule
+    ClientEntity:
+      title: ClientEntity
+      type: string
+      description: |-
+        A standardized entity name for the destination client using all lowercase, and dashes instead of spaces. For example, `yourPlatform-${yourCustomerId}`. Entity names must be unique across all destination clients, and you will recieve a 409 response with a clear status message if the entity name has already been taken.
+
+        **Note:** Please keep in mind that the entity name may be public to your Ignition users, so it should not contain any sensitive information.
+    DestinationClient:
+      title: DestinationClient
+      type: object
+      properties:
+        id:
+          type: string
+          description: The client ID of the destination client. You'll use this to make requests to the Axle API on behalf of your destination client.
+        entity:
+          $ref: "#/components/schemas/ClientEntity"
+      required:
+        - id
+        - entity
 
   parameters:
     x-client-id:
