@@ -267,7 +267,7 @@ The returned evaluation will include
 ```
 
   </Accordion>
-  <Accordion title="Does Collision Coverage Meet Requirements?">
+  <Accordion title="Collision Coverage Meet Requirements">
     ### `collision-coverage-meets-requirements`
     
     Evaluates whether the policy has collision coverage and if the coverage meets specific deductible requirements. This rule can evaluate coverage requirements for a specific vehicle (using VIN) or for the entire policy.
@@ -373,7 +373,7 @@ The returned evaluation will include
       }
   ```
   </Accordion>
-  <Accordion title="Does Comprehensive Coverage Meet Requirements?">
+  <Accordion title="Comprehensive Coverage Meet Requirements">
 
     ### `comprehensive-coverage-meets-requirements`
 
@@ -521,6 +521,96 @@ The returned evaluation will include
         "caution": [],
         "unknown": [],
       }
+    }
+    ```
+  </Accordion>
+    <Accordion title="Required Fields or a Declarations Page Exists">
+    ### `fields-or-declarations-page-exist`
+
+    Evaluates if the policy either has (1) certain required fields present OR (2) at least one declarations page. If either sub-check passes, the overall Rule resolves to `pass`. Otherwise, it resolves to `fail`.
+
+    This Rule combines two separate checks:
+
+      1. `fieldsExist` – Verifies that all fields specified by your `requiredFields` input are present on the policy. If every requested field is found, this check resolves to `pass`; otherwise, it resolves to `fail` and includes a `missingFields` list in the metadata.
+      2. `declarationsPageExists` – Checks whether the policy has at least one document classified by Axle as a declaration page. 
+
+    | Status | Cause                                                                                          |
+    | ------ | ---------------------------------------------------------------------------------------------- |
+    | `pass`   | The policy has all required fields, or there is a declarations page (or both).                 |
+    | `fail`   | Neither the required fields nor a declarations page could be confirmed on the policy.          |
+
+
+    **Input Parameters**
+    - `requiredFields`: An object used to specify which fields must exist on the policy. Each key maps to a boolean (or nested object / array structure) indicating whether that particular field is required. The shape of the object mirrors the Axle Policy Schema. 
+    
+    Below is an example request specifying the required fields. If either the required fields or the declarations page check is satisfied, the Rule evaluates to `pass`.
+
+    ```typescript Example Rule Request
+    {
+      "rule": "fields-or-declarations-page-exist",
+      "input": {
+         "requiredFields": {
+            "carrier": true,
+            "isActive": true,
+            "policyNumber": true,
+            "expirationDate": true,
+            "properties": [
+              {
+                "data": {
+                  "vin": true
+                }
+              }
+            ],
+            "insureds":[
+              {
+                "firstName": true,
+                "lastName": true
+              }
+            ]
+        }
+      }
+    }
+    ```
+
+    ```typescript Example Rule Response
+    "fields-or-declarations-page-exist": {
+        "status": "pass",
+        "summary": {
+            "fields-or-declarations-page-exist": "pass"
+        },
+        "rules": {
+            "fields-or-declarations-page-exist": {
+                "status": "pass",
+                "breakdown": {
+                    "fieldsExist": {
+                        "status": "pass",
+                        "metadata": {
+                            "missingFields": []
+                        }
+                    },
+                    "declarationsPageExists": {
+                        "status": "pass",
+                        "metadata": {
+                            "documents": [
+                                {
+                                    "createdAt": "2025-01-10T16:28:07.089Z",
+                                    "issuedDate": "2024-12-24T00:00:00.000Z",
+                                    "name": "Auto Policy Document Amended",
+                                    "source": "carrier",
+                                    "type": [
+                                        "policy-agreement",
+                                        "declaration-page"
+                                    ],
+                                    "key": "doc_FqDyv9F2b6x5eZ_jokGWU.pdf",
+                                    "effectiveDate": null
+                                }
+                            ]
+                        }
+                    }
+                },
+                "metadata": {}
+            }
+        }
     }
     ```
   </Accordion>
