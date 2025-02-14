@@ -16,10 +16,10 @@ Please first review the [Quickstart](/guides/quickstart) guide and API docs on h
 Your `POST` request to `/ignition` can include the following request
 body:
 
-- Optional: `redirectUri` - the URL Axle Ignition will redirect the user to upon completion, exit, or error outcomes of the Ignition session, defaults to no redirect
-- Optional: `webhookUri` - the URL Axle will send events to as the user proceeds through the Ignition session, defaults to no webhook events
-- Optional: `user` - optional user to attach, please refer to [startIgnition](/api-reference/ignition/start-ignition) for more details
-- Optional: `metadata` - optional Ignition session metadata, please refer to [startIgnition](/api-reference/ignition/start-ignition) for more details
+- `redirectUri` (optional) - the URL Axle Ignition will redirect the user to upon completion, exit, or error outcomes of the Ignition session, defaults to no redirect
+- `webhookUri` (optional) - the URL Axle will send events to as the user proceeds through the Ignition session, defaults to no webhook events
+- `user` (optional in production; required in the sandbox) - optional user to attach. Please refer to [startIgnition](/api-reference/ignition/start-ignition) for more details.
+- `metadata` (optional) - optional Ignition session metadata, please refer to [startIgnition](/api-reference/ignition/start-ignition) for more details
 
 ```bash Request Sample
 curl --request POST \
