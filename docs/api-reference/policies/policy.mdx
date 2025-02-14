@@ -53,7 +53,14 @@ Rules applied:
 Rules applied:
 
 1. isActive `true` includes policies that are specified as active but may also include policies in pre-effective or pending cancellation statuses that are marked as active by the carrier.
+2. isActive `null` indicates that the insurance carrier did not specify if the policy is active.
 
+  <Info>
+
+    If a `policy.modified` [event](/guides/policy-events) indicates that a policy’s `isActive` field has changed to `null`, then it is
+    recommended to reach out to the user to reconnect their account.
+
+  </Info>
 </ParamField>
 
 <ParamField body="effectiveDate" type="string or null">
